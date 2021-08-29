@@ -18,6 +18,8 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :avatar  %>
+          <%= f.input :avatar_attachment, as: :hidden %>
         </div>
 
         <div class="form-actions">

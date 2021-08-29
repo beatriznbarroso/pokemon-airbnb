@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card-trip">
+        <%= cl_image_tag @pokemon.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top' %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= @pokemon.name %></h2>
+          </div>
+          <h2 class="card-trip-pricing"> <%= @pokemon.price %></h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

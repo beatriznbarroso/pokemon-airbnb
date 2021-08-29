@@ -28,9 +28,10 @@ class PokemonsController < ApplicationController
   private
 
   def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
   end
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :description, :price, :start_date, :end_date)
+    params.require(:pokemon).permit(:name, :description, :price, :start_date, :end_date, :photo)
   end
 end
