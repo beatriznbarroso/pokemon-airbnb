@@ -4,20 +4,17 @@
   <div class="row">
     <% @pokemons.each do |pokemon| %>
       <div class="col-3">
-        <%= link_to pokemon_path(pokemon), class: "card-trip" do %>
-          <div class="">
+        <div class="card-trip">
+          <%= link_to pokemon_path(pokemon) do %>
             <% if pokemon.photo.attached? %>
               <%= cl_image_tag pokemon.photo.key, height: 300, width: 400, crop: :fill, class: 'card-img-top' %>
             <% end %>
             <div class="card-trip-infos">
-              <div>
-                <h2><%= pokemon.name %></h2>
-              </div>
+              <h2><%= pokemon.name %></h2>
               <h2 class="card-trip-pricing"> <%= pokemon.price %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
