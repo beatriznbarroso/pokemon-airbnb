@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :pokemons do 
     resources :bookings, only: [:create, :update, :destroy]
   end
+
+  resources :pokemons do 
+    resources :bookings, only: [:create, :update, :destroy]
+  end
 end
