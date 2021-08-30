@@ -4,8 +4,6 @@
       <%= simple_form_for @pokemon do |f| %>
         <%= f.input :name, label: 'Your pokemon name', error: 'Pokemon Name is mandatory, please specify one' %>
         <%= f.input :price, label: 'Your pokemon price' %>
-        <%= f.date_field :start_date, label: 'Start Date', min: Date.today %>
-        <%= f.date_field :end_date, label: 'End Date', min: Date.today %>
         <%= f.input :photo, as: :file %>
         <%= f.button :submit %>
       <% end %>
