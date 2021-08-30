@@ -20,6 +20,14 @@
           <%= f.button :submit, "Book Pokemon", class: "btn btn-primary" %>
         </div>
       <% end %>
+
+      <% if @pokemon.bookings %>
+        <% @pokemon.bookings.each do |booking| %>
+          <p><%= booking.user.email %></p>
+          <p><%= booking.start_time %></p> 
+           - <%= booking.start_time %> <%= booking.end_time %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
