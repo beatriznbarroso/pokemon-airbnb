@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.pokemon = @pokemon
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       flash[:notice] = "Cool! You booked this pokemon"
       redirect_to pokemon_path(@pokemon)

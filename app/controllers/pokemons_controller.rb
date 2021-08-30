@@ -4,16 +4,18 @@ class PokemonsController < ApplicationController
 
 
   def index
-    @pokemons = Pokemon.all
+    @pokemons = policy_scope(Pokemon).order(created_at: :desc)
   end
 
   def new
     @pokemon = Pokemon.new
+    authorize @pokemon
   end
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
     @pokemon.owner = current_user
+    authorize @pokemon
 
     if @pokemon.save
       redirect_to pokemon_path(@pokemon)
@@ -30,6 +32,7 @@ class PokemonsController < ApplicationController
 
   def set_pokemon
     @pokemon = Pokemon.find(params[:id])
+    authorize @pokemon
   end
 
   def pokemon_params
