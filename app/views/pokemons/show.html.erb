@@ -23,9 +23,7 @@
 
       <% if @pokemon.bookings %>
         <% @pokemon.bookings.each do |booking| %>
-          <p><%= booking.user.email %></p>
-          <p><%= booking.start_time %></p> 
-           - <%= booking.start_time %> <%= booking.end_time %>
+          <p><%= booking.user.email %> : <%= booking&.start_time&.strftime("%F") %> to <%= booking&.end_time&.strftime("%F") %></p>
         <% end %>
       <% end %>
     </div>
