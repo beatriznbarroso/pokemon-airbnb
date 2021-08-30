@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
   new Typed('#banner-typed-text', {
-    strings: ["Pokemon", "Gonna catch them aaaaaall"],
+    strings: ["Pika Pika", "<b>Gonna catch them aaaaaall</b>"],
     typeSpeed: 50,
     loop: true
   });
