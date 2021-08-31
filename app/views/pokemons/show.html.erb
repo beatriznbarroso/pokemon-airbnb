@@ -10,6 +10,9 @@
       <h2 ><%= @pokemon.name %></h2>
       <h2 class="card-trip-pricing"> <%= @pokemon.price %></h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <% if policy(@pokemon).destroy? %>
+        <%= link_to "Delete pokemon", pokemon_path(@pokemon.id), method: :delete, data: { confirm: "Delete #{@pokemon.name}?" } %>
+      <% end %>
     </div>
     <div class="col-6 mt-5">
       <h2>Your Reservation Date</h2>

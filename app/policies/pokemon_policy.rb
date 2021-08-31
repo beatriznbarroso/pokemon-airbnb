@@ -24,7 +24,7 @@ class PokemonPolicy < ApplicationPolicy
   private 
 
   def is_user?
-    record.user == user
+    record.owner == user
   end
 
 end

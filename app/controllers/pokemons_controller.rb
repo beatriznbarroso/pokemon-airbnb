@@ -1,10 +1,19 @@
 class PokemonsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
-  before_action :set_pokemon, only: [:show]
+  before_action :set_pokemon, only: [:show, :destroy]
 
 
   def index
     @pokemons = policy_scope(Pokemon).order(created_at: :desc)
+
+    @markers = @pokemons.geocoded.map do |pokemon|
+    {
+      lat: pokemon.latitude,
+      lng: pokemon.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { pokemon: pokemon }),
+      image_url: helpers.asset_url('pokeball')
+    }
+    end
   end
 
   def new
@@ -26,6 +35,11 @@ class PokemonsController < ApplicationController
 
   def show
     @booking = Booking.new
+  end
+
+  def destroy
+    @pokemon.destroy
+    redirect_to pokemons_url, notice: 'Pokemon was successfully destroyed.'
   end
 
   private
