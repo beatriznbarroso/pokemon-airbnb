@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <%= simple_form_for @pokemon do |f| %>
-        <%= f.input :name, label: 'Your pokemon name', error: 'Pokemon Name is mandatory, please specify one' %>
+        <%= f.input :name, label: 'Your pokemon name' %>
         <%= f.input :price, label: 'Your pokemon price' %>
         <%= f.input :address, label: 'Your pokemon address' %>
         <%= f.input :photo, as: :file %>
