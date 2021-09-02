@@ -10,4 +10,11 @@ class Pokemon < ApplicationRecord
   validates :owner_id, :name, :owner, presence: true
   validates :name, uniqueness: true
   validates :price, numericality: { only_integer: true }, inclusion: { in: 0..100}
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

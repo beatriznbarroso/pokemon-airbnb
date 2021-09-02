@@ -2,6 +2,14 @@
 <%= render "shared/banner" %>
 <div class="container">
   <div class="row">
+  <%= form_tag pokemons_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a pokemon"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
     <div id="map"
       class="mt-5"
       style="width: 80%; height: 500px;"

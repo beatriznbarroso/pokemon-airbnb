@@ -4,8 +4,11 @@ class PokemonsController < ApplicationController
 
 
   def index
-    @pokemons = policy_scope(Pokemon).order(created_at: :desc)
-
+    if params[:query].present? 
+      @pokemons = policy_scope(Pokemon.search_by_name_and_description(params[:query])).order(created_at: :desc)
+    else
+      @pokemons = policy_scope(Pokemon).order(created_at: :desc)
+    end
     @markers = @pokemons.geocoded.map do |pokemon|
     {
       lat: pokemon.latitude,
